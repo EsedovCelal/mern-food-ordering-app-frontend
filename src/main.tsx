@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./global.css";
 import AppRoutes from "./AppRoutes";
 import Auth0ProviderWithNavigate from "./auth/Auth0ProviderWithNavigate";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Toaster } from "sonner";
 

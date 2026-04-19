@@ -1,7 +1,7 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 import type { User } from "@/types";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 
 export const useGetMyUser = () => {
@@ -26,9 +26,12 @@ export const useGetMyUser = () => {
 
   const {
     data: currentUser,
-    isLoading,
+    isPending: isLoading,
     error,
-  } = useQuery("fetchCurrentUser", getMyUserRequest);
+  } = useQuery({
+    queryKey: ["fetchCurrentUser"],
+    queryFn: getMyUserRequest,
+  });
 
   if (error) {
     toast.error(error.toString());
@@ -60,10 +63,12 @@ export const useCreateMyUser = () => {
   };
   const {
     mutateAsync: createUser,
-    isLoading,
+    isPending: isLoading,
     isError,
     isSuccess,
-  } = useMutation(createMyUserRequest);
+  } = useMutation({
+    mutationFn: createMyUserRequest,
+  });
 
   return { createUser, isLoading, isError, isSuccess };
 };
@@ -98,11 +103,13 @@ export const useUpdateMyUser = () => {
 
   const {
     mutateAsync: updateUser,
-    isLoading,
+    isPending: isLoading,
     isSuccess,
     error,
     reset,
-  } = useMutation(updateMyUserRequest);
+  } = useMutation({
+    mutationFn: updateMyUserRequest,
+  });
 
   if (isSuccess) {
     toast.success("User profile updated!");
