@@ -6,6 +6,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@layer base {
+  html, body {
+    @apply font-sans;
+  }
+}
+
 @theme inline {
   --font-heading: var(--font-mono);
   --font-mono: "JetBrains Mono Variable", monospace;

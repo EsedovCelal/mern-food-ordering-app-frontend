@@ -1,6 +1,5 @@
 import {
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -8,7 +7,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useFormContext } from "react-hook-form";
-import { Form } from "react-router-dom";
 
 const DetailSection = () => {
   const { control } = useFormContext();
@@ -16,7 +14,7 @@ const DetailSection = () => {
     <div className="space-y-2">
       <div>
         <h2 className="text-2xl font-bold">Details</h2>
-        <FormDescription>Enter details about your restaurant</FormDescription>
+        <p>Enter details about your restaurant</p>
       </div>
       <FormField
         control={control}
@@ -25,7 +23,7 @@ const DetailSection = () => {
           <FormItem>
             <FormLabel>Name</FormLabel>
             <FormControl>
-              <Input {...field} className="bg-white" />
+              <Input {...field} className="bg-white shadow-sm rounded-md" />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -36,10 +34,10 @@ const DetailSection = () => {
           control={control}
           name="city"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="flex-1">
               <FormLabel>City</FormLabel>
               <FormControl>
-                <Input {...field} className="bg-white" />
+                <Input {...field} className="bg-white shadow-sm rounded-md" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -49,10 +47,10 @@ const DetailSection = () => {
           control={control}
           name="country"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="flex-1">
               <FormLabel>Country</FormLabel>
               <FormControl>
-                <Input {...field} className="bg-white" />
+                <Input {...field} className="bg-white shadow-sm rounded-md" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -66,7 +64,11 @@ const DetailSection = () => {
           <FormItem className="max-w-[25%]">
             <FormLabel>Delivery price ($)</FormLabel>
             <FormControl>
-              <Input {...field} className="bg-white" placeholder="1.50" />
+              <Input
+                {...field}
+                className="bg-white shadow-sm rounded-md"
+                placeholder="1.50"
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -79,7 +81,11 @@ const DetailSection = () => {
           <FormItem className="max-w-[25%]">
             <FormLabel>Estimated delivery time (minutes)</FormLabel>
             <FormControl>
-              <Input {...field} className="bg-white" placeholder="30" />
+              <Input
+                {...field}
+                className="bg-white shadow-sm rounded-md"
+                placeholder="30"
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
