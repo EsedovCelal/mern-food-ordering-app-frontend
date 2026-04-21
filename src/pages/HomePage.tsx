@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const HomePage = () => {
   const navigate = useNavigate();
 
-  const handeSearchSubmit = (searchFormValues: SearchForm) => {
+  const handleSearchSubmit = (searchFormValues: SearchForm) => {
     navigate({
       pathname: `/search/${searchFormValues.searchQuery}`,
     });
@@ -21,7 +21,7 @@ const HomePage = () => {
         <span className="text-xl"> Food is just a click away!</span>
         <SearchBar
           placeHolder="Search bu City ot Town"
-          onSubmit={handeSearchSubmit}
+          onSubmit={handleSearchSubmit}
         />
       </div>
       <div className="grid md:grid-cols-2 gap-5 py-10">

@@ -23,7 +23,7 @@ export type SearchForm = z.infer<typeof formSchema>;
 const SearchBar = ({ onSubmit, onReset, placeHolder }: Props) => {
   const form = useForm<SearchForm>({
     resolver: zodResolver(formSchema),
-    /*     defaultValues: { serchQuery: "" }, */
+    defaultValues: { searchQuery: "" },
   });
 
   const handleReset = () => {
@@ -72,7 +72,7 @@ const SearchBar = ({ onSubmit, onReset, placeHolder }: Props) => {
             Clear
           </Button>
         )}
-        <Button type="submit" className="rounded-full bf-orange-500">
+        <Button type="submit" className="rounded-full bg-orange-500">
           Search
         </Button>
       </form>
