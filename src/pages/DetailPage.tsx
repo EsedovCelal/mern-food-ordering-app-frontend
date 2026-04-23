@@ -1,15 +1,18 @@
 import { useGetRestaurant } from "@/api/RestaurantApi";
 import MenuItem from "@/components/MenuItem";
+import OrderSummary from "@/components/OrderSummary";
 import RestaurantInfo from "@/components/RestaurantInfo";
 import { Card } from "@/components/ui/card";
+import type { MenuItem } from "@base-ui/react";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { MenuItem as MenuItemType } from "../types";
 
 export type CartItem = {
   _id: string;
   name: string;
-  prince: number;
+  price: number;
   quantity: number;
 };
 
@@ -18,6 +21,14 @@ const DetailPage = () => {
   const { restaurant, isLoading } = useGetRestaurant(restaurantId);
 
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+  const addToCart = (menuItem: MenuItemType) => {
+    setCartItems((prevCartItems) => {
+      const existingCartItem = prevCartItems.find(
+        (cartItem) => cartItem._id === menuItem._id,
+      );
+    });
+  };
 
   if (isLoading || !restaurant) {
     return "Loading...";
@@ -40,9 +51,9 @@ const DetailPage = () => {
           ))}
         </div>
         <div>
-          {/*  <Card>
+          <Card>
             <OrderSummary restaurant={restaurant} cartItems={cartItems} />
-          </Card> */}
+          </Card>
         </div>
       </div>
     </div>
