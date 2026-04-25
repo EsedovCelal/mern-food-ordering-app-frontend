@@ -22,6 +22,7 @@ const HomePage = () => {
         <SearchBar
           placeHolder="Search bu City ot Town"
           onSubmit={handleSearchSubmit}
+          searchQuery=""
         />
       </div>
       <div className="grid md:grid-cols-2 gap-5 py-10">

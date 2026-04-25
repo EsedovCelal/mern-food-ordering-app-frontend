@@ -4,7 +4,7 @@ import PaginationSelector from "@/components/PaginationSelector";
 import SearchBar, { type SearchForm } from "@/components/SearchBar";
 import SearchResultCard from "@/components/SearchResultCard";
 import SearchResultInfo from "@/components/SearchResultInfo";
-import SortOptionDropdown from "@/components/sortOptionDropdown";
+import SortOptionDropdown from "@/components/SortOptionDropdown";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -97,7 +97,7 @@ const SearchPage = () => {
           <SearchResultInfo total={results.pagination.total} city={city} />
           <SortOptionDropdown
             sortOption={searchState.sortOption}
-            onChange={(value) => setSortOption(value)}
+            onChange={(value: string) => setSortOption(value)}
           />
         </div>
         {results.data.map((restaurant, index) => (
