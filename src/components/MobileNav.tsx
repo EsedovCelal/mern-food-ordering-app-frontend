@@ -15,7 +15,7 @@ const MobileNav = () => {
   const { isAuthenticated, user, loginWithRedirect } = useAuth0();
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger className="space-y-3">
         <Menu className="text-orange-500" />
       </SheetTrigger>
       <SheetContent className="space-y-3">

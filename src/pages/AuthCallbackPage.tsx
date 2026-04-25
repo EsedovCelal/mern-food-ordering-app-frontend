@@ -12,8 +12,8 @@ const AuthCallbackPage = () => {
     if (user?.sub && user?.email && !hasCreateUser.current) {
       createUser({ auth0Id: user.sub, email: user.email });
       hasCreateUser.current = true;
+      navigate("/");
     }
-    navigate("/");
   }, [createUser, navigate, user]);
   return <>Loading...</>;
 };

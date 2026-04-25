@@ -3,7 +3,7 @@ import z from "zod";
 import { Form, FormControl, FormField, FormItem } from "./ui/form";
 import { useForm } from "react-hook-form";
 import { Search } from "lucide-react";
-import { Input } from "@base-ui/react";
+import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useEffect } from "react";
 
