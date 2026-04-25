@@ -16,7 +16,7 @@ const ManageRestaurantPage = () => {
     useUpdateMyRestaurant();
 
   const { orders } = useGetMyRestaurantOrder();
-  console.log(orders);
+
   const isEditing = !!restaurant;
 
   return (

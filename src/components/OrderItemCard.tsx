@@ -75,7 +75,7 @@ const OrderItemCard = ({ order }: Props) => {
       </CardHeader>
       <CardContent className="flex flex-col gap-6 ">
         <div className="flex flex-col gap-2">
-          {order.cartItems.map((cartItem) => (
+          {order.cartItems.map((cartItem, index) => (
             <span>
               <Badge variant="outline" className="mr-2">
                 {cartItem.quantity}

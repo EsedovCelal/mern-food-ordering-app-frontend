@@ -126,7 +126,7 @@ export const useGetMyRestaurantOrder = () => {
         "Content-Type": "application/json",
       },
     });
-    console.log("Fetching from:", `${API_BASE_URL}/api/my/restaurant/order`);
+
     if (!response.ok) {
       throw new Error("Failed to fetch orders");
     }
