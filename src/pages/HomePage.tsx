@@ -2,8 +2,11 @@ import landingImage from "../assets/landing.png";
 import AppDownloadImage from "../assets/appDownload.png";
 import SearchBar, { type SearchForm } from "@/components/SearchBar";
 import { useNavigate } from "react-router-dom";
+import { useGetCities } from "@/api/AllCityApi";
 
 const HomePage = () => {
+  const { cities, isLoading } = useGetCities();
+
   const navigate = useNavigate();
 
   const handleSearchSubmit = (searchFormValues: SearchForm) => {
@@ -20,9 +23,10 @@ const HomePage = () => {
         </h1>
         <span className="text-base md:text-xl">Food is just a click away!</span>
         <SearchBar
-          placeHolder="Search by City or Town"
+          placeHolder="Search by location"
           onSubmit={handleSearchSubmit}
           searchQuery=""
+          suggestions={isLoading ? [] : (cities ?? [])}
         />
       </div>
       <div className="grid md:grid-cols-2 gap-8 py-10">
