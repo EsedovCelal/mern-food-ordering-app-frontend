@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 const formSchema = z.object({
   searchQuery: z.string({
-    required_error: "Restaurant name is re",
+    required_error: "Restaurant name is required",
   }),
 });
 
@@ -46,13 +46,9 @@ const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className={`flex item-center gap-3 justify-between flex-row border-2 rounded-full p-3 ${form.formState.errors.searchQuery && "border-red-500"}`}
+        className={` flex items-center gap-3 justify-between flex-row border-2 rounded-full p-3 ${form.formState.errors.searchQuery && "border-red-500"}`}
       >
-        <Search
-          strokeWidth={2.5}
-          size={30}
-          className="ml-1 text-orange-500 hidden md:block"
-        />
+        <Search strokeWidth={2.5} size={20} className="ml-1 text-orange-500" />
         <FormField
           control={form.control}
           name="searchQuery"
